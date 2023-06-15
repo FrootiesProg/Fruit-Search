@@ -1,0 +1,110 @@
+:root {
+  --color-primary: #ff0000;
+  --color-secondary: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-container input {
+  border: 1px solid var(--color-secondary);
+  padding: 10px;
+  width: 300px;
+}
+
+.suggestions {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  width: 300px;
+  background-color: black;
+  border-radius: 500px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: none;
+  border: 10px solid #ccc; /* Add border style */
+  padding: 10px; /* Add padding */
+}
+
+.suggestions li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: var(--color-primary);
+}
+
+@keyframes suggestions-appear {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+.suggestions.has-suggestions {
+  animation: suggestions-appear 0.5s ease-in-out;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #f1f1f1 !important;
+}
+
+.highlighted {
+  background-color: #f1f1f1;
+}
+
+.user-suggestion {
+  border: 10px solid #ccc;
+  background-color: #000;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.user-suggestion li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.user-suggestion li:hover {
+  background-color: #f2f2f2;
+}
+
+.user-suggestion li.highlighted {
+  background-color: #e0e0e0;
+}
